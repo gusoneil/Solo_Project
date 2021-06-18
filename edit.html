@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review Database</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Update your review</h1>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/update/{{review.id}}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" value="{{ review.title }}">
+            </div>
+            <div class="form-group">
+                <label for="year_released">Year Released</label>
+                <input type="text" name="year_released" value="{{ review.year_released }}">
+            </div>
+            <div class="form-group">
+                <label for="developer">Developed By</label>
+                <input type="text" name="developer" value="{{ review.developer }}">
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <input type="number" min="0" max="5" name="rating" value="{{ review.rating }}">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea name="desc" cols="25" rows="2">{{ review.desc }}</textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn-primary" value="Update">
+            </div>
+        </form>
+        <a href="/main">Back</a>
+
+    </div>
+</body>
+</html>

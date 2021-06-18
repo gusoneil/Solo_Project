@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review Database</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="rev_dets">
+            <h4>Title: </h4>
+            <p>{{ review.title }}</p>
+            <h4>Year Released: </h4>
+            <p>{{ review.year_released }}</p>
+            <h4>Developed By: </h4>
+            <p>{{ review.developer }}</p>
+            <h4>Rating: </h4>
+            <p>{{ review.rating }}</p>
+            <h4>Description: </h4>
+            <p>{{ review.desc }}</p>
+            <p>Reviewed By: {{ review.owner }}</p>
+            <p>Date Reviewed: {{ review.created_at }}</p>
+        </div>
+    </div>
+    <a href="/main">Back</a> | <a href="/logout">Logout</a>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Review Database</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Welcome {{user.first_name}}</h1>
+        <h4>All Game Reviews</h4>
+        <div class="links">
+            <a href="/logout" class="btn-danger">Logout</a>
+            <a href="/new" class="btn-primary">Add Review</a>
+        </div>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year Released</th>
+                    <th>Developed By</th>
+                    <th>Rating</th>
+                    <th>Reviewed By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in reviews %}
+                    <tr>
+                        <td>{{review.title}}</td>
+                        <td>{{review.year_released}}</td>
+                        <td>{{review.developer}}</td>
+                        <td>{{review.rating}}</td>
+                        <td>{{review.owner}}</td>
+                        <td><a href="/view/{{review.id}}">More Info</a> | <a href="/edit/{{review.id}}">Edit</a> | <a href="/delete/{{review.id}}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

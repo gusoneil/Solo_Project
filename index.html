@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameReviews.com</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Welcome to GameReviews.com</h1>
+        <div class="row">
+            <div class="col-5">
+                <div class="reg_form">
+                    <h1>Register</h1>
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <form action="/register" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="first_name">First Name: </label>
+                            <input type="text" name="first_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name: </label>
+                            <input type="text" name="last_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input type="text" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password: </label>
+                            <input type="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="conf_pw">Confirm Password: </label>
+                            <input type="password" name="conf_pw">
+                        </div>
+                        <div class="form-group">
+                            <input class="btn-primary" type="submit" value="Register">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="login_form">
+                    <h1>Log In</h1>
+                    <form action="/login" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Email: </label>
+                            <input type="text" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password: </label>
+                            <input type="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <input class="btn-primary" type="submit" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

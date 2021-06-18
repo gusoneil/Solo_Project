@@ -1,0 +1,25 @@
+body {
+    background-color: aquamarine;
+}
+
+.reg_form{
+    border: 1px solid black;
+    display: inline-block; 
+    margin: auto 10px;
+    padding: 0px 10px;
+}
+
+.login_form{
+    border: 1px solid black;
+    display: inline-block; 
+    margin: auto 10px;
+    padding: 0px 10px;
+}
+
+.show_dets{
+    border: 1px solid black;
+    display: inline-block; 
+    margin: auto 10px;
+    padding: 0px 10px;
+}
+
